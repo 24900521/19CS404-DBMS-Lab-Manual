@@ -47,123 +47,236 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to change the first_name column of employees table with 'John' for those employees whose department_id is 80 and gets a commission_pct below 0.35.
+
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
+For example:
 
 ```sql
--- Paste your SQL code below for Question 1
+update employees
+set first_name = 'John'
+where department_id = 80
+and commission_pct<0.35;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![Output1]![image](https://github.com/user-attachments/assets/94375e14-6e23-4da1-a33c-adcdad40e93e)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL statement to Double the salary for employees in department 20 who have a job_id ending with 'MAN'
+
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
 
 ```sql
--- Paste your SQL code below for Question 2
+update employees
+set salary= salary * 2
+where department_id = 20
+and job_id LIKE '%MAN';
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Output2]![image](https://github.com/user-attachments/assets/e94762a8-ad0c-492f-9093-4c882dcc6471)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL statement to increase the salary of employees under the department 40, 90 and 110 according to the company rules.
+
+Salary will be increased by 25% for the department 40, 15% for department 90 and 10% for the department 110 and the rest of the departments will remain same.
+
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
 
 ```sql
--- Paste your SQL code below for Question 3
+update employees
+set salary=
+case
+    when department_id=40 then salary *1.25
+    when department_id=90 then salary *1.15
+    when department_id=110 then salary *1.10
+    else salary
+end    
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Output3]![image](https://github.com/user-attachments/assets/bd8cc915-6990-44dd-aea7-30de9d795741)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL statement to Update the per_unit_price to 25 and total_price accordingly in purchases table where purchase_date is '2022-08-15' and product_id is 12.
 
 ```sql
--- Paste your SQL code below for Question 4
+update purchases
+set per_unit_price=25,
+total_price=quantity*25
+where purchase_date='2022-08-15'
+and product_id = 12;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Output4]![image](https://github.com/user-attachments/assets/19932988-8e73-46e6-a2ba-0b45564a424c)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL statement to Increase the selling price by 10% for all products in the 'Bakery' category in the products table.
+
+Products table
+
+---------------
+product_id
+product_name
+category
+cost_price
+sell_price
+reorder_lvl
+quantity
+supplier_id
+Answer:(penalty
 
 ```sql
--- Paste your SQL code below for Question 5
+update products
+set sell_price=sell_price*1.10
+where category='Bakery'
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Output5]![image](https://github.com/user-attachments/assets/c10e6f3e-e7fc-4b85-aa79-a221edaadbf2)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete customers with 'GRADE' 3 or 'AGENT_CODE' 'A008' whose 'OUTSTANDING_AMT' is less than 5000
+
+Sample table: Customer
 
 ```sql
--- Paste your SQL code below for Question 6
+delete from customer
+where (GRADE=3 OR AGENT_CODE='A008')
+AND OUTSTANDING_AMT<5000;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Output6]![image](https://github.com/user-attachments/assets/6a71fdcd-2ecb-4a1e-a1ea-7f2a32bdf8ae)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
+
+Sample table: Customer
 
 ```sql
--- Paste your SQL code below for Question 7
+DELETE FROM Customer
+WHERE CUST_NAME LIKE'%Holmes%';
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Output7]![image](https://github.com/user-attachments/assets/d3a55e8a-6209-4d3e-aa23-1454b5e75f2a)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to delete a doctor from Doctors table whose Specialization is 'Pediatrics' and First name is 'Michael'.
+
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
 
 ```sql
--- Paste your SQL code below for Question 8
+DELETE FROM Doctors
+WHERE specialization='Pediatrics'
+AND First_name = 'Michael';
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Output8]![image](https://github.com/user-attachments/assets/acec2d50-eb02-435f-9b28-841936a58fde)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Delete customers with 'CUST_COUNTRY' 'UK' and 'WORKING_AREA' 'London' whose 'GRADE' is less than 3
+
+Sample table: Customer
 
 ```sql
--- Paste your SQL code below for Question 9
+DELETE FROM Customer 
+where CUST_COUNTRY='UK'
+and WORKING_AREA= 'London'
+and GRADE<3;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Output9]![image](https://github.com/user-attachments/assets/dc3f579d-8af1-4730-86df-cb4f451e0ba2)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Delete customers with 'GRADE' 3 and whose 'CUST_NAME' contains the substring 'BBB', and 'PAYMENT_AMT' is greater than 2000
+
+Sample table: Customer
 
 ```sql
--- Paste your SQL code below for Question 10
+delete from Customer
+where GRADE=3
+and CUST_NAME like '%BBB%'
+AND PAYMENT_AMT > 2000;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Output10]![image](https://github.com/user-attachments/assets/35b84411-6b60-49db-b77a-69a047f3a465)
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
